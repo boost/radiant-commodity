@@ -3,6 +3,10 @@
 This is a simple extension that exposes page and snippet data at urls
 without layouts so that the content can be imported by external projects.
 
+For Rails projects you can use the plugin RadiantConsumer at
+http://github.com/boost/radiant-consumer to import the Radiant content into
+a rails view.
+
 == EXAMPLE
 
 After installation each page will be available at /page/page/url. If you had
