@@ -2,9 +2,9 @@
 # require_dependency 'application'
 
 class CommodityExtension < Radiant::Extension
-  version "1.0"
-  description "Describe your extension here"
-  url "http://yourwebsite.com/snippet_export"
+  version "0.1"
+  description "Provides URLs to grab content without layouts"
+  url "http://github.com/boost/radiant-commodity"
   
   # define_routes do |map|
   #   map.namespace :admin, :member => { :remove => :get } do |admin|
