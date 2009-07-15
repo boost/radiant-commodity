@@ -18,7 +18,18 @@ class PagesController < SiteController
       @part = :body
     end
 
-    render :text => @page.render_part(@part)
-    @cache.cache_response('/page/' + url, response) if request.get? and @page.cache?
+    if @page.has_part?(@part)
+      render :text => @page.render_part(@part)
+    elsif @page.inherits_part?(@part)
+      anc = @page.ancestors.detect{|a| a.has_part?(@part) }
+      if anc
+        part = anc.part(@part)
+        render :text => @page.send(:parse_object, part)
+      end
+    end
+
+    if self.cache
+      cache.cache_response('/page/' + url, response) if request.get? and @page.cache?
+    end
   end
 end
